@@ -22,10 +22,22 @@ function App() {
         setLoading(false);
       } catch (err) {
         setError(true);
+        console.log(err);
       }
     };
     getMedicines();
   }, []);
+
+  const medsObjToObjArray = () => {
+    const medicineTypesObjArray = [];
+    Object.keys(medicines).forEach((key) =>
+      medicineTypesObjArray.push({
+        type: key,
+        details: medicines[key],
+      })
+    );
+    return medicineTypesObjArray;
+  };
 
   return (
     <div className="App">
