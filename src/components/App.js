@@ -39,9 +39,24 @@ function App() {
     return medicineTypesObjArray;
   };
 
+  const showMedications = () => {
+    return medsObjToObjArray().map((medication) => {
+      if (!error && !loading) {
+        return (
+          <div key={medication.type}>
+            <h3>{medication.type}</h3>
+            <ul>
+              <li>{medication.details[0].associatedDrug[0].name}</li>
+            </ul>
+          </div>
+        );
+      } else return <div>{error}</div>;
+    });
+  };
+
   return (
     <div className="App">
-      <div></div>
+      <div>{loading ? <p>Loading...</p> : showMedications()}</div>
     </div>
   );
 }
