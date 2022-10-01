@@ -36,6 +36,7 @@ function App() {
         details: medicines[key],
       })
     );
+    console.log(medicineTypesObjArray)
     return medicineTypesObjArray;
   };
 
@@ -47,6 +48,7 @@ function App() {
             <h3>{medication.type}</h3>
             <ul>
               <li>{medication.details[0].associatedDrug[0].name}</li>
+              <li>{medication.details[0]['associatedDrug#2'][0].name}</li>
             </ul>
           </div>
         );
